@@ -41,25 +41,36 @@
 
 //уровень сложности #2
 
+// let counter = setInterval("timer()", 1000); 
+
+// function timer(){
+//    let datePromo = '00:00:59';
+//    let now = new Date();
+//    let leftUnit = datePromo - now;
+   
+//    now --;
+
+// if ( leftUnit <= 0){
+//    clearInterval(counter);
+//    return downloadFileLink.click();
+// }
+//    let hours = Math.floor(leftUnit / 1000 / 60 / 60) % 24;
+//    hours = hours < 10 ? "0" + hours : hours;
+//    let minutes = Math.floor(leftUnit / 1000 / 60 ) %60;
+//    minutes = minutes < 10 ? "0" + minutes : minutes;
+//    let seconds = Math.floor(leftUnit / 1000) %60;
+//    seconds = seconds < 10 ? "0" + seconds : seconds;
+   
+//    document.getElementById("timer").innerHTML= `${hours}:${minutes}:${seconds}`;
+// }
+
+let count = 5;
 let counter = setInterval("timer()", 1000);
-
-function timer(){
-   let datePromo = new Date(`2022-02-09 20:11:00`);
-   let now = new Date();
-   let leftUnit = datePromo - now;
-   
-   now --;
-
-if ( leftUnit <= 0){
-   clearInterval(counter);
-   return downloadFileLink.click();
-}
-   let hours = Math.floor(leftUnit / 1000 / 60 / 60) % 24;
-   hours = hours < 10 ? "0" + hours : hours;
-   let minutes = Math.floor(leftUnit / 1000 / 60 ) %60;
-   minutes = minutes < 10 ? "0" + minutes : minutes;
-   let seconds = Math.floor(leftUnit / 1000) %60;
-   seconds = seconds < 10 ? "0" + seconds : seconds;
-   
-   document.getElementById("timer").innerHTML= `${hours}:${minutes}:${seconds}`;
+function timer (){
+   if(count <= 0){
+      downloadFileLink.click();
+      clearInterval(counter);
+   }
+   document.getElementById("timer").innerHTML=count;
+   count--;
 }
